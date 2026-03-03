@@ -1,0 +1,35 @@
+[project]
+name = "agente-calendario"
+version = "0.1.0"
+description = "Agente de calendario con IA para gestión de turnos vía Telegram"
+requires-python = ">=3.11"
+dependencies = [
+    "python-telegram-bot>=20.0",
+    "pydantic>=2.0",
+    "pydantic-settings>=2.0",
+    "aiosqlite>=0.19.0",
+    "groq>=0.4.0",
+    "google-api-python-client>=2.0",
+    "google-auth>=2.0",
+    "thefuzz[speedup]>=0.20.0",
+    "python-dotenv>=1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-asyncio>=0.21",
+    "pytest-cov>=4.0",
+]
+
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.setuptools.packages.find]
+include = ["src*"]
